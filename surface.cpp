@@ -14,7 +14,6 @@
 #include "ball.h"
 
 extern int num_balls;
-//extern ball *myBall;
 extern ball* sceneBalls[1];
 extern int pong;
 
@@ -198,91 +197,4 @@ void surface::collide()
             }
         }
     }
-    /*if(pong == 1 && hitTestXStart <0 && floorStartX == floorEndX)
-    {
-        if(myBall->ballY>=-0.03 && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ>(hitTestZEnd) && myBall->ballZ<(hitTestZStart))
-        {
-            myBall->xvelocity = -myBall->xvelocity;
-            myBall->ballX = hitTestXEnd;
-
-        }
-    }
-    else if(pong == 1 && hitTestXStart>0 && floorStartX == floorEndX)
-    {
-        if(myBall->ballY>=-0.03 && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-        {
-            myBall->xvelocity = -myBall->xvelocity;
-            myBall->ballX = hitTestXStart;
-
-        }
-    }
-    else if(floorStartX == floorEndX && floorStartZ>0 && floorEndZ>0) //both Z points bove 0
-    {
-        if(myBall->ballY>=(hitTestYStart) && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-        {
-            myBall->xvelocity = -myBall->xvelocity;
-            myBall->ballX = hitTestXStart;
-
-        }
-    }
-    else if(floorStartX == floorEndX && floorStartZ<0 && floorEndZ<0) //both Z points below 0
-    {
-        if(myBall->ballY>=(hitTestYStart) && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ>(hitTestZEnd) && myBall->ballZ<(hitTestZStart))
-        {
-            myBall->xvelocity = -myBall->xvelocity;
-            myBall->ballX = hitTestXEnd;
-
-        }
-    }
-    else if(floorStartX == floorEndX && floorStartZ>0 && floorEndZ<0) //start above 0 end below 0
-    {
-        if(myBall->ballY>=(hitTestYStart) && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ>(hitTestZEnd) && myBall->ballZ<(hitTestZStart))
-        {
-            myBall->xvelocity = -myBall->xvelocity;
-            myBall->ballX = hitTestXEnd;
-
-        }
-    }
-    else if(floorStartX == floorEndX) //start below 0 end above 0
-    {
-        if(myBall->ballY>=(hitTestYStart) && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-        {
-            myBall->xvelocity = -myBall->xvelocity;
-            myBall->ballX = hitTestXStart;
-
-        }
-    }
-    else if(floorStartZ == floorEndZ && floorStartZ >0)
-    {
-        if(pong==1)
-        {
-            if(myBall->ballY>=-0.03f && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-            {
-                myBall->zvelocity = -myBall->zvelocity;
-                myBall->ballZ = hitTestZStart;
-            }
-        }
-        else if(myBall->ballY>=(hitTestYStart) && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-        {
-            myBall->zvelocity = -myBall->zvelocity;
-            myBall->ballZ = hitTestZStart;
-        }
-    }
-    else if(floorStartZ == floorEndZ)
-    {
-        if(pong==1)
-        {
-            if(myBall->ballY>=-0.03f && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-            {
-                myBall->zvelocity = -myBall->zvelocity;
-                myBall->ballZ = hitTestZEnd;
-            }
-        }
-        else if(myBall->ballY>=(hitTestYStart) && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ<(hitTestZEnd) && myBall->ballZ>(hitTestZStart))
-        {
-            myBall->zvelocity = -myBall->zvelocity;
-            myBall->ballZ = hitTestZEnd;
-        }
-    }*/
-
 }

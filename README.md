@@ -11,10 +11,10 @@ BallSim is a physics based bouncing ball simulator.
 
 Hit detection is present between the ball class and the surface class, and is implemented by calling ->collide(). The collide function is only working between surfaces, and the specific myBall object, as an array was not necessary for this implementation.
 
-Multiple balls could easily be added, and hit detected by declaring a ball array, and checking each array index in the collide function. Likewise, a surface array could be created, saving the specific surface collision calls, and replacing them with an iteration loops calling collide from each index of the surface array.
+Multiple balls in the scene has been implemented, but only 1 ball is spawned in my deliverable. The number of balls can be modified by changing the num_balls variable, and adding new ball objects to the initialization "ball *sceneBalls[#]". Extra balls in the scene have full hit detection, as well as full randomized attributes when spawning new balls. Likewise, a surface array could be created, removing the specific surface collision calls, and replacing them with an iteration loop calling collide from each index of the surface array.
 
 The surface and ball classes are modular making placement of the objects simple and efficient.
 
-I have added a "Pong" option to the simulation. By clicking on the pong mode check box, the camera shifts to a birds eye angle, and pong-style walls are spawned. 
+I have added a "Pong" option to the simulation. By clicking on the pong mode check box, the camera shifts to a birds eye angle, and pong-style walls are spawned. The speed of the spawned ball may be upped by enabling the "Nightmare Mode" checkbox. 
 
 One bug which has persisted in the program occurs when the simulation is newly compiled and run for the first time. Spontaneously, the ball will not initially spawn correctly. This can be worked around by spawning a new ball using the push button or the spacebar. I have not yet found the cause of this issue.

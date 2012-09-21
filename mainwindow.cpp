@@ -19,7 +19,6 @@ extern ball* sceneBalls[1];
 
 bool pongOn;
 bool mFor, mBack, mLeft, mRight, cUp, cDown, cLeft, cRight, cJump, cFall;
-//extern ball *myBall;
 extern bool nightOn;
 extern int pong;
 extern float cameraZ;
@@ -63,47 +62,51 @@ void MainWindow::on_verticalSlider_2_valueChanged(int value)
 //Push button QT slot
 void MainWindow::on_pushButton_clicked()
 {
-    float denominator;
-    if(pong == 1 && nightmare == 1)
+    int i;
+    for(i=0;i<num_balls;i++)
     {
-        denominator = 0.5f;
-    }
-    else if(pong == 1 && nightmare ==0)
-    {
-        denominator = 2.0f;
-    }
-    else
-    {
-        denominator = 3.0f;
-    }
-    sceneBalls[0]->ballRed = ((float)rand()/(float)RAND_MAX)/2;
-    sceneBalls[0]->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
-    sceneBalls[0]->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
-    int a=rand()%2;
-    if(a)
-    {
-        sceneBalls[0]->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
-    }
-    else
-    {
-        sceneBalls[0]->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
-    }
-    a=rand()%2;
-    if(a)
-    {
-        sceneBalls[0]->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
-    }
-    else
-    {
-        sceneBalls[0]->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
-    }
+        float denominator;
+        if(pong == 1 && nightmare == 1)
+        {
+            denominator = 0.5f;
+        }
+        else if(pong == 1 && nightmare ==0)
+        {
+            denominator = 2.0f;
+        }
+        else
+        {
+            denominator = 3.0f;
+        }
+        sceneBalls[i]->ballRed = ((float)rand()/(float)RAND_MAX)/2;
+        sceneBalls[i]->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
+        sceneBalls[i]->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
+        int a=rand()%2;
+        if(a)
+        {
+            sceneBalls[i]->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+        }
+        else
+        {
+            sceneBalls[i]->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+        }
+        a=rand()%2;
+        if(a)
+        {
+            sceneBalls[i]->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+        }
+        else
+        {
+            sceneBalls[i]->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+        }
 
-    sceneBalls[0]->ballZ = 0.0f;
-    sceneBalls[0]->ballX = 0.0f;
-    sceneBalls[0]->ballY = 9.0f;
-    mass = 1;
-    gravity = 0.03f;
-    sceneBalls[0]->velocity = 0.0f;
+        sceneBalls[i]->ballZ = 0.0f;
+        sceneBalls[i]->ballX = 0.0f;
+        sceneBalls[i]->ballY = 9.0f;
+        mass = 1;
+        gravity = 0.03f;
+        sceneBalls[i]->velocity = 0.0f;
+    }
 }
 
 //Slider QT slots used for setting values based on UI sliders
@@ -189,47 +192,51 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 
     if(event->text() == " ")
     {
-        float denominator;
-        if(pong == 1 && nightmare == 1)
+        int i;
+        for(i=0;i<num_balls;i++)
         {
-            denominator = 0.5f;
-        }
-        else if(pong == 1 && nightmare ==0)
-        {
-            denominator = 2.0f;
-        }
-        else
-        {
-            denominator = 3.0f;
-        }
-        sceneBalls[0]->ballRed = ((float)rand()/(float)RAND_MAX)/2;
-        sceneBalls[0]->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
-        sceneBalls[0]->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
-        int a=rand()%2;
-        if(a)
-        {
-            sceneBalls[0]->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
-        }
-        else
-        {
-            sceneBalls[0]->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
-        }
-        a=rand()%2;
-        if(a)
-        {
-            sceneBalls[0]->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
-        }
-        else
-        {
-            sceneBalls[0]->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
-        }
+            float denominator;
+            if(pong == 1 && nightmare == 1)
+            {
+                denominator = 0.5f;
+            }
+            else if(pong == 1 && nightmare ==0)
+            {
+                denominator = 2.0f;
+            }
+            else
+            {
+                denominator = 3.0f;
+            }
+            sceneBalls[i]->ballRed = ((float)rand()/(float)RAND_MAX)/2;
+            sceneBalls[i]->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
+            sceneBalls[i]->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
+            int a=rand()%2;
+            if(a)
+            {
+                sceneBalls[i]->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+            }
+            else
+            {
+                sceneBalls[i]->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+            }
+            a=rand()%2;
+            if(a)
+            {
+                sceneBalls[i]->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+            }
+            else
+            {
+                sceneBalls[i]->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+            }
 
-        sceneBalls[0]->ballZ = 0.0f;
-        sceneBalls[0]->ballX = 0.0f;
-        sceneBalls[0]->ballY = 9.0f;
-        mass = 1;
-        gravity = 0.03f;
-        sceneBalls[0]->velocity = 0.0f;
+            sceneBalls[i]->ballZ = 0.0f;
+            sceneBalls[i]->ballX = 0.0f;
+            sceneBalls[i]->ballY = 9.0f;
+            mass = 1;
+            gravity = 0.03f;
+            sceneBalls[i]->velocity = 0.0f;
+        }
     }
 }
 
