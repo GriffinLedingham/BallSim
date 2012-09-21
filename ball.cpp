@@ -33,42 +33,42 @@ ball::ball(int radius, float x, float y, float z, float red, float green, float 
 void ball::moveSim()
 {
     if(ballY<0.0f)
+    {
+        if(velocity>-0.028f && velocity<=0.06)
         {
-            if(velocity>-0.028f && velocity<=0.06)
-            {
-                //Over-travel correction
-                velocity = 0.0f;
-            }
-            if(disableAir==0)
-            {
-                //Air Resistance/Energy Loss
-                velocity = -velocity/1.15;
-            }
-            else
-            {
-                //No Resistance/Energy Loss
-                velocity = -velocity;
-            }
-            ballY=0.0f;
-            //Friction
-            xvelocity -= sliderValue3/12;
-            zvelocity -= sliderValue3/12;
+            //Over-travel correction
+            velocity = 0.0f;
         }
+        if(disableAir==0)
+        {
+            //Air Resistance/Energy Loss
+            velocity = -velocity/1.15;
+        }
+        else
+        {
+            //No Resistance/Energy Loss
+            velocity = -velocity;
+        }
+        ballY=0.0f;
+        //Friction
+        xvelocity -= sliderValue3/12;
+        zvelocity -= sliderValue3/12;
+    }
 
-        velocity+=acceleration;
-        ballY-=velocity;
+    velocity+=acceleration;
+    ballY-=velocity;
 
-        //Lock X coordinates
-        if(lockX==0)
-        {
-            ballX -=xvelocity;
-        }
-        
-        //Lock Z coordinates
-        if(lockZ==0)
-        {
-            ballZ -=zvelocity;
-        }
+    //Lock X coordinates
+    if(lockX==0)
+    {
+        ballX -=xvelocity;
+    }
+
+    //Lock Z coordinates
+    if(lockZ==0)
+    {
+        ballZ -=zvelocity;
+    }
 }
 
 //Load the ball object into the scene

@@ -13,6 +13,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ball.h"
+#include <ctime>
 
 extern int num_balls;
 extern ball* sceneBalls[1];

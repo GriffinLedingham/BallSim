@@ -43,7 +43,6 @@ float cameraRotHor = 0.0f;
 float cameraRotVer = 10.0f;
 //Variable used to enable and disable pong mode.
 int pong = 0;
-
 //Boolean used to enable and disable pong mode.
 extern bool pongOn;
 
@@ -104,7 +103,7 @@ void BasicOpenGLView::animateGL()
     //(The opponent is kind of cheating)
     if(pong == 1)
     {
-        wall3->floorStartZ = sceneBalls[0]->ballZ+4;
+        wall3->floorStartZ = sceneBalls[0]->ballZ+5;
         wall3->floorEndZ = wall3->floorStartZ+ wall3->zSize;
     }
 
@@ -221,8 +220,8 @@ void BasicOpenGLView::paintGL()
         viewMatrix.rotate(cameraRotVer,1,0,0);
         viewMatrix.translate(cameraX,cameraY,cameraZ);
         viewMatrix.lookAt(QVector3D(0.0,3.0,-15.0),
-                      QVector3D(0.0,4.0,0.0),
-                      QVector3D(0.0,1.0,0.0));
+                          QVector3D(0.0,4.0,0.0),
+                          QVector3D(0.0,1.0,0.0));
         glLoadMatrixd(viewMatrix.data());
     }
     else
