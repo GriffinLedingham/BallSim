@@ -13,6 +13,8 @@ Hit detection is present between the ball class and the surface class, and is im
 
 Multiple balls in the scene has been implemented, but only 1 ball is spawned in my deliverable. The number of balls can be modified by changing the num_balls variable, and adding new ball objects to the initialization "ball *sceneBalls[#]". Extra balls in the scene have full hit detection, as well as full randomized attributes when spawning new balls. Likewise, a surface array could be created, removing the specific surface collision calls, and replacing them with an iteration loop calling collide from each index of the surface array.
 
+Due to my pong implementation, I have decided to not have the walls scalable in an array like I did balls. It would be very simple to make this change, mirroring how I have the ball array set up.
+
 The surface and ball classes are modular making placement of the objects simple and efficient.
 
 I have added a "Pong" option to the simulation. By clicking on the pong mode check box, the camera shifts to a birds eye angle, and pong-style walls are spawned. The speed of the spawned ball may be upped by enabling the "Nightmare Mode" checkbox. 
