@@ -9,7 +9,7 @@ If an issue occurs running the program, please email me arrange for me to bring 
 
 BallSim is a physics based bouncing ball simulator.
 
-Hit detection is present between the ball class and the surface class, and is implemented by calling ->collide(). The collide function is only working between surfaces, and the specific myBall object, as an array was not necessary for this implementation.
+Hit detection is present between the ball class and the surface class, and is implemented by calling ->collide(). The collide function is working between surfaces, and any balls in the sceneBalls array.
 
 Multiple balls in the scene has been implemented, but only 1 ball is spawned in my deliverable. The number of balls can be modified by changing the num_balls variable, and adding new ball objects to the initialization "ball *sceneBalls[#]". Extra balls in the scene have full hit detection, as well as full randomized attributes when spawning new balls. Likewise, a surface array could be created, removing the specific surface collision calls, and replacing them with an iteration loop calling collide from each index of the surface array.
 
