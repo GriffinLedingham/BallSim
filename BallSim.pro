@@ -6,7 +6,7 @@
 
 QT       += core gui opengl
 
-TARGET = BasicOpenGL
+TARGET = BallSim
 TEMPLATE = app
 
 
