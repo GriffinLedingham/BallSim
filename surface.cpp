@@ -13,10 +13,6 @@
 #include "surface.h"
 #include "ball.h"
 
-//float floorRed, floorGreen, floorBlue;
-//float floorStartX,floorEndX,floorStartY,floorEndY,floorStartZ,floorEndZ;
-//floor(float,float,float,float,float,float,float,float,float);
-
 extern ball *myBall;
 extern int pong;
 

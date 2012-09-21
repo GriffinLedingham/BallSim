@@ -21,11 +21,11 @@
 #include "ball.h"
 #include "surface.h"
 
+bool nightOn;
 extern bool mFor, mBack, mLeft, mRight, cUp, cDown, cLeft, cRight, cJump, cFall;
-
-//Variable used to enable and disable pong mode.
-int pong = 0;
-
+extern int nightmare;
+extern int lockX;
+extern int lockZ;
 extern int sliderValue;
 extern int sliderValue2;
 extern int sliderValue3;
@@ -33,19 +33,16 @@ extern int disableAir;
 float mass = 1;
 float gravity = 0.03f;
 float acceleration = mass*gravity;
-bool nightOn;
-extern int nightmare;
-extern int lockX;
-extern int lockZ;
-
-//Boolean used to enable and disable pong mode.
-extern bool pongOn;
-
 float cameraZ = -10.0f;
 float cameraX = 0.0f;
 float cameraY = -3.0f;
 float cameraRotHor = 0.0f;
 float cameraRotVer = 10.0f;
+//Variable used to enable and disable pong mode.
+int pong = 0;
+
+//Boolean used to enable and disable pong mode.
+extern bool pongOn;
 
 //Initialize the objects in the scene.
 ball *myBall = new ball(2,0.0f,9.0f,0.0f,.5f,.2f,.4f);

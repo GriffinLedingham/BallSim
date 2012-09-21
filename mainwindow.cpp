@@ -14,12 +14,11 @@
 #include "ui_mainwindow.h"
 #include "ball.h"
 
-int disableAir=0;
-int sliderValue;
-int sliderValue2=5;
-int sliderValue3;
+bool pongOn;
 bool mFor, mBack, mLeft, mRight, cUp, cDown, cLeft, cRight, cJump, cFall;
 extern ball *myBall;
+extern bool nightOn;
+extern int pong;
 extern float cameraZ;
 extern float cameraX;
 extern float cameraY;
@@ -27,12 +26,13 @@ extern float mass;
 extern float gravity;
 extern float cameraRotHor;
 extern float cameraRotVer;
-extern bool nightOn;
-bool pongOn;
+int disableAir=0;
+int sliderValue;
+int sliderValue2=5;
+int sliderValue3;
 int lockX=0;
 int lockZ=0;
 int nightmare=0;
-extern int pong;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
