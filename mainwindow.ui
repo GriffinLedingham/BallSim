@@ -131,7 +131,8 @@ A - Strafe Left         D - Strafe Right
 ← - Rotate Left      → - Rotate Right
 -   Lower Camera    + - Raise Camera
 Space - Spawn New Ball
-R - Reset Camera</string>
+R - Reset Camera
+A - Pong Left          D - Pong Right</string>
       </property>
      </widget>
     </item>
