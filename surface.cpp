@@ -13,7 +13,9 @@
 #include "surface.h"
 #include "ball.h"
 
-extern ball *myBall;
+extern int num_balls;
+//extern ball *myBall;
+extern ball* sceneBalls[1];
 extern int pong;
 
 //Surface class constructor
@@ -65,48 +67,138 @@ void surface::spawn()
 //Collision detection for the surfaces and the ball
 void surface::collide()
 {
+    int i;
     float hitTestYStart, hitTestYEnd,hitTestXStart, hitTestXEnd,hitTestZStart, hitTestZEnd;
+    for(i=0;i<num_balls;i++)
+    {
 
-    if(floorStartY<0)
-    {
-        hitTestYStart = floorStartY + 2.0f;
-    }
-    else
-    {
-        hitTestYStart = floorStartY + 2.0f;
-    }
-    if(floorEndY<0)
-    {
-        hitTestYEnd = floorEndY + 2.0f;
-    }
-    else
-    {
-        hitTestYEnd = floorEndY + 2.0f;
-    }
+        if(floorStartY<0)
+        {
+            hitTestYStart = floorStartY + 2.0f;
+        }
+        else
+        {
+            hitTestYStart = floorStartY + 2.0f;
+        }
+        if(floorEndY<0)
+        {
+            hitTestYEnd = floorEndY + 2.0f;
+        }
+        else
+        {
+            hitTestYEnd = floorEndY + 2.0f;
+        }
 
-    if(floorStartX>floorEndX)
-    {
-        hitTestXStart = floorStartX + 2.0f;
-        hitTestXEnd = floorEndX - 2.0f;
-    }
-    else
-    {
-        hitTestXStart = floorStartX - 2.0f;
-        hitTestXEnd = floorEndX + 2.0f;
-    }
+        if(floorStartX>floorEndX)
+        {
+            hitTestXStart = floorStartX + 2.0f;
+            hitTestXEnd = floorEndX - 2.0f;
+        }
+        else
+        {
+            hitTestXStart = floorStartX - 2.0f;
+            hitTestXEnd = floorEndX + 2.0f;
+        }
 
-    if(floorStartZ>floorEndZ)
-    {
-        hitTestZStart = floorStartZ + 2.0f;
-        hitTestZEnd = floorEndZ - 2.0f;
-    }
-    else
-    {
-        hitTestZStart = floorStartZ - 2.0f;
-        hitTestZEnd = floorEndZ + 2.0f;
-    }
+        if(floorStartZ>floorEndZ)
+        {
+            hitTestZStart = floorStartZ + 2.0f;
+            hitTestZEnd = floorEndZ - 2.0f;
+        }
+        else
+        {
+            hitTestZStart = floorStartZ - 2.0f;
+            hitTestZEnd = floorEndZ + 2.0f;
+        }
 
-    if(pong == 1 && hitTestXStart <0 && floorStartX == floorEndX)
+        if(pong == 1 && hitTestXStart <0 && floorStartX == floorEndX)
+        {
+            if(sceneBalls[i]->ballY>=-0.03 && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ>(hitTestZEnd) && sceneBalls[i]->ballZ<(hitTestZStart))
+            {
+                sceneBalls[i]->xvelocity = -sceneBalls[i]->xvelocity;
+                sceneBalls[i]->ballX = hitTestXEnd;
+
+            }
+        }
+        else if(pong == 1 && hitTestXStart>0 && floorStartX == floorEndX)
+        {
+            if(sceneBalls[i]->ballY>=-0.03 && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+            {
+                sceneBalls[i]->xvelocity = -sceneBalls[i]->xvelocity;
+                sceneBalls[i]->ballX = hitTestXStart;
+
+            }
+        }
+        else if(floorStartX == floorEndX && floorStartZ>0 && floorEndZ>0) //both Z points bove 0
+        {
+            if(sceneBalls[i]->ballY>=(hitTestYStart) && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+            {
+                sceneBalls[i]->xvelocity = -sceneBalls[i]->xvelocity;
+                sceneBalls[i]->ballX = hitTestXStart;
+
+            }
+        }
+        else if(floorStartX == floorEndX && floorStartZ<0 && floorEndZ<0) //both Z points below 0
+        {
+            if(sceneBalls[i]->ballY>=(hitTestYStart) && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ>(hitTestZEnd) && sceneBalls[i]->ballZ<(hitTestZStart))
+            {
+                sceneBalls[i]->xvelocity = -sceneBalls[i]->xvelocity;
+                sceneBalls[i]->ballX = hitTestXEnd;
+
+            }
+        }
+        else if(floorStartX == floorEndX && floorStartZ>0 && floorEndZ<0) //start above 0 end below 0
+        {
+            if(sceneBalls[i]->ballY>=(hitTestYStart) && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ>(hitTestZEnd) && sceneBalls[i]->ballZ<(hitTestZStart))
+            {
+                sceneBalls[i]->xvelocity = -sceneBalls[i]->xvelocity;
+                sceneBalls[i]->ballX = hitTestXEnd;
+
+            }
+        }
+        else if(floorStartX == floorEndX) //start below 0 end above 0
+        {
+            if(sceneBalls[i]->ballY>=(hitTestYStart) && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+            {
+                sceneBalls[i]->xvelocity = -sceneBalls[i]->xvelocity;
+                sceneBalls[i]->ballX = hitTestXStart;
+
+            }
+        }
+        else if(floorStartZ == floorEndZ && floorStartZ >0)
+        {
+            if(pong==1)
+            {
+                if(sceneBalls[i]->ballY>=-0.03f && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+                {
+                    sceneBalls[i]->zvelocity = -sceneBalls[i]->zvelocity;
+                    sceneBalls[i]->ballZ = hitTestZStart;
+                }
+            }
+            else if(sceneBalls[i]->ballY>=(hitTestYStart) && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+            {
+                sceneBalls[i]->zvelocity = -sceneBalls[i]->zvelocity;
+                sceneBalls[i]->ballZ = hitTestZStart;
+            }
+        }
+        else if(floorStartZ == floorEndZ)
+        {
+            if(pong==1)
+            {
+                if(sceneBalls[i]->ballY>=-0.03f && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+                {
+                    sceneBalls[i]->zvelocity = -sceneBalls[i]->zvelocity;
+                    sceneBalls[i]->ballZ = hitTestZEnd;
+                }
+            }
+            else if(sceneBalls[i]->ballY>=(hitTestYStart) && sceneBalls[i]->ballY<(hitTestYEnd) && sceneBalls[i]->ballX>(hitTestXStart) && sceneBalls[i]->ballX<(hitTestXEnd) && sceneBalls[i]->ballZ<(hitTestZEnd) && sceneBalls[i]->ballZ>(hitTestZStart))
+            {
+                sceneBalls[i]->zvelocity = -sceneBalls[i]->zvelocity;
+                sceneBalls[i]->ballZ = hitTestZEnd;
+            }
+        }
+    }
+    /*if(pong == 1 && hitTestXStart <0 && floorStartX == floorEndX)
     {
         if(myBall->ballY>=-0.03 && myBall->ballY<(hitTestYEnd) && myBall->ballX>(hitTestXStart) && myBall->ballX<(hitTestXEnd) && myBall->ballZ>(hitTestZEnd) && myBall->ballZ<(hitTestZStart))
         {
@@ -191,6 +283,6 @@ void surface::collide()
             myBall->zvelocity = -myBall->zvelocity;
             myBall->ballZ = hitTestZEnd;
         }
-    }
+    }*/
 
 }

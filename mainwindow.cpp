@@ -14,9 +14,12 @@
 #include "ui_mainwindow.h"
 #include "ball.h"
 
+extern int num_balls;
+extern ball* sceneBalls[1];
+
 bool pongOn;
 bool mFor, mBack, mLeft, mRight, cUp, cDown, cLeft, cRight, cJump, cFall;
-extern ball *myBall;
+//extern ball *myBall;
 extern bool nightOn;
 extern int pong;
 extern float cameraZ;
@@ -73,34 +76,34 @@ void MainWindow::on_pushButton_clicked()
     {
         denominator = 3.0f;
     }
-    myBall->ballRed = ((float)rand()/(float)RAND_MAX)/2;
-    myBall->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
-    myBall->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
+    sceneBalls[0]->ballRed = ((float)rand()/(float)RAND_MAX)/2;
+    sceneBalls[0]->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
+    sceneBalls[0]->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
     int a=rand()%2;
     if(a)
     {
-        myBall->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+        sceneBalls[0]->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
     }
     else
     {
-        myBall->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+        sceneBalls[0]->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
     }
     a=rand()%2;
     if(a)
     {
-        myBall->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+        sceneBalls[0]->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
     }
     else
     {
-        myBall->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+        sceneBalls[0]->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
     }
 
-    myBall->ballZ = 0.0f;
-    myBall->ballX = 0.0f;
-    myBall->ballY = 9.0f;
+    sceneBalls[0]->ballZ = 0.0f;
+    sceneBalls[0]->ballX = 0.0f;
+    sceneBalls[0]->ballY = 9.0f;
     mass = 1;
     gravity = 0.03f;
-    myBall->velocity = 0.0f;
+    sceneBalls[0]->velocity = 0.0f;
 }
 
 //Slider QT slots used for setting values based on UI sliders
@@ -199,34 +202,34 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
         {
             denominator = 3.0f;
         }
-        myBall->ballRed = ((float)rand()/(float)RAND_MAX)/2;
-        myBall->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
-        myBall->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
+        sceneBalls[0]->ballRed = ((float)rand()/(float)RAND_MAX)/2;
+        sceneBalls[0]->ballGreen = ((float)rand()/(float)RAND_MAX)/2;
+        sceneBalls[0]->ballBlue = ((float)rand()/(float)RAND_MAX)/2;
         int a=rand()%2;
         if(a)
         {
-            myBall->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+            sceneBalls[0]->xvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
         }
         else
         {
-            myBall->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+            sceneBalls[0]->xvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
         }
         a=rand()%2;
         if(a)
         {
-            myBall->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
+            sceneBalls[0]->zvelocity = ((float)rand()/(float)RAND_MAX)/denominator;
         }
         else
         {
-            myBall->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
+            sceneBalls[0]->zvelocity = (-(float)rand()/(float)RAND_MAX)/denominator;
         }
 
-        myBall->ballZ = 0.0f;
-        myBall->ballX = 0.0f;
-        myBall->ballY = 9.0f;
+        sceneBalls[0]->ballZ = 0.0f;
+        sceneBalls[0]->ballX = 0.0f;
+        sceneBalls[0]->ballY = 9.0f;
         mass = 1;
         gravity = 0.03f;
-        myBall->velocity = 0.0f;
+        sceneBalls[0]->velocity = 0.0f;
     }
 }
 

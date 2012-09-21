@@ -21,6 +21,9 @@
 #include "ball.h"
 #include "surface.h"
 
+int num_balls=1;
+ball *sceneBalls[1] = {new ball(2,0.0f,9.0f,0.0f,.5f,.2f,.4f)};
+
 bool nightOn;
 extern bool mFor, mBack, mLeft, mRight, cUp, cDown, cLeft, cRight, cJump, cFall;
 extern int nightmare;
@@ -45,7 +48,7 @@ int pong = 0;
 extern bool pongOn;
 
 //Initialize the objects in the scene.
-ball *myBall = new ball(2,0.0f,9.0f,0.0f,.5f,.2f,.4f);
+//ball *myBall = new ball(2,0.0f,9.0f,0.0f,.5f,.2f,.4f);
 surface *myFloor = new surface(.5f,.5f,.5f,-40.0f,-2.0f,-40.0f,80.0f,0.0f,80.0f);
 surface *wall1 = new surface(.5f,.5f,.5f,10.0f,-2.0f,-1.0f,0.0f,10.0f,14.0f);
 surface *wall2 = new surface(.5f,.5f,.5f,10.0f,-2.0f,-14.0f,10.0f,10.0f,0.0f);
@@ -102,7 +105,8 @@ void BasicOpenGLView::animateGL()
     //(The opponent is kind of cheating)
     if(pong == 1)
     {
-        wall3->floorStartZ = myBall->ballZ+4;
+        //wall3->floorStartZ = myBall->ballZ+4;
+        wall3->floorStartZ = sceneBalls[0]->ballZ+4;
         wall3->floorEndZ = wall3->floorStartZ+ wall3->zSize;
     }
 
@@ -186,7 +190,13 @@ void BasicOpenGLView::animateGL()
 
     //Call ball movement function, and hit test functions in each object.
     //The ball and walls should be stored in arrays for easier detection/initialization, but was not required for this assignment.
-    myBall->moveSim();
+    int i;
+    for(i=0;i<num_balls;i++)
+    {
+        sceneBalls[i]->moveSim();
+    }
+
+    //myBall->moveSim();
     wall1->collide();
     wall3->collide();
 
@@ -240,7 +250,14 @@ void BasicOpenGLView::paintGL()
     glPopMatrix();
 
     //Spawn objects based whether pong mode is enabled or disabled
-    myBall->spawn();
+
+    int i;
+    for(i=0;i<num_balls;i++)
+    {
+        sceneBalls[i]->spawn();
+    }
+
+    //myBall->spawn();
     myFloor->spawn();
     wall1->spawn();
     wall3->spawn();
