@@ -66,12 +66,12 @@ void BasicOpenGLView::initializeGL()
 {
     //Timer which updates the GL render.
     QTimer *timer = new QTimer();
-    timer->start(17); //time in ms, here 1 ms
+    timer->start(17); //time in ms, here 17 ms
     connect(timer ,SIGNAL(timeout()),this,SLOT(updateGL()));
 
     //Timer which updates the scene objects.
     QTimer *animate = new QTimer();
-    animate->start(1000); //time in ms, here 1 ms
+    animate->start(1000); //time in ms, here 1000 ms
     connect(timer ,SIGNAL(timeout()),this,SLOT(animateGL()));
 }
 
