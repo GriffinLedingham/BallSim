@@ -169,6 +169,22 @@ void BasicOpenGLView::animateGL()
 
         }
     }
+    if(cUp == true)
+    {
+        if(pong==0)
+        {
+            cameraRotVer -= 3;
+
+        }
+    }
+    if(cDown == true)
+    {
+        if(pong==0)
+        {
+            cameraRotVer += 3;
+
+        }
+    }
     
     //Pan camera up and down in the Y-Axis
     if(cJump == true)
@@ -216,8 +232,9 @@ void BasicOpenGLView::paintGL()
     if(pong==0)
     {
         viewMatrix.setToIdentity();
-        viewMatrix.rotate(cameraRotHor,0,1,0);
         viewMatrix.rotate(cameraRotVer,1,0,0);
+        viewMatrix.rotate(cameraRotHor,0,1,0);
+
         viewMatrix.translate(cameraX,cameraY,cameraZ);
         viewMatrix.lookAt(QVector3D(0.0,3.0,-15.0),
                           QVector3D(0.0,4.0,0.0),

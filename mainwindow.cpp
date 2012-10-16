@@ -172,12 +172,12 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
         cRight = true;
     }
 
-    if(event->text() == "i") //rot up
+    if(event->key() == Qt::Key_Up) //rot up
     {
         cUp = true;
     }
 
-    if(event->text() == "k") //rot down
+    if(event->key() == Qt::Key_Down) //rot down
     {
         cDown = true;
     }
@@ -283,12 +283,12 @@ void MainWindow::keyReleaseEvent(QKeyEvent* event)
         cRight = false;
     }
 
-    if(event->text() == "i") //rot up
+    if(event->key() == Qt::Key_Up) //rot up
     {
         cUp = false;
     }
 
-    if(event->text() == "k") //rot down
+    if(event->key() == Qt::Key_Down) //rot down
     {
         cDown = false;
     }
