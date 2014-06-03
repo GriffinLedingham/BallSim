@@ -2,10 +2,6 @@ BallSim
 =======
 
 Created by: Griffin Ledingham
-Student #: V00712188
-E-Mail: gcledingham@gmail.com
-
-If an issue occurs running the program, please email me arrange for me to bring in my laptop to demo.
 
 BallSim is a physics based bouncing ball simulator.
 
